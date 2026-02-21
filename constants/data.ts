@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export const headerData = [
   { title: "Home", href: "/" },
   { title: "Shop", href: "/shop" },
