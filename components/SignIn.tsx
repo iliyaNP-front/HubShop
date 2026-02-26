@@ -1,7 +1,10 @@
+import { SignInButton } from "@clerk/nextjs";
+
 export default function SignIn() {
   return (
-    <button
-      className="
+    <SignInButton mode="modal">
+      <button
+        className="
         text-sm 
         font-semibold 
         text-lightColor 
@@ -9,8 +12,9 @@ export default function SignIn() {
         hover:cursor-pointer 
         hoverEffect
         "
-    >
-      Login
-    </button>
+      >
+        Login
+      </button>
+    </SignInButton>
   );
 }

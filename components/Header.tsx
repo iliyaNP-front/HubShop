@@ -1,3 +1,4 @@
+import { currentUser } from "@clerk/nextjs/server";
 import CartIcon from "./CartIcon";
 import Container from "./Container";
 import FavoriteButton from "./FavoriteButton";
@@ -6,8 +7,12 @@ import Logo from "./Logo";
 import MobileMenu from "./MobileMenu";
 import SearchBar from "./SearchBar";
 import SignIn from "./SignIn";
+import { ClerkLoaded, SignedIn, UserButton } from "@clerk/nextjs";
 
-export default function Header() {
+export default async function Header() {
+  const user = await currentUser();
+  console.log(user);
+
   return (
     <header
       className="bg-white 
@@ -46,7 +51,12 @@ export default function Header() {
           <SearchBar />
           <CartIcon />
           <FavoriteButton />
-          <SignIn />
+          <ClerkLoaded>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            {!user && <SignIn />}
+          </ClerkLoaded>
         </div>
       </Container>
     </header>

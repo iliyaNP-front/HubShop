@@ -50,7 +50,7 @@ export default function SocialMedia({
             <TooltipTrigger asChild>
               <Link
                 target="_blank"
-                rel="nooper noreferrer"
+                rel="noopener noreferrer"
                 href={item.href}
                 className={cn(
                   "p-2 border rounded-full hover:text-white hover:border-shop_dark_green hoverEffect",
